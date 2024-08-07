@@ -1,6 +1,6 @@
 import React from 'react';
 import reactDom from 'react-dom/client';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Partners from './pages/Partners';
 import AboutUs from './AboutUs';
@@ -11,29 +11,26 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <AboutUs />,
+    errorElement: <ErrorPage />,
   },
   {
     path: '/Partners',
     element: <Partners />,
   },
   {
-    path: '/SignUp',
+    path: '/Signup',
     element: <SignUp />,
   },
   {
-    path: '/AboutUs',
-    element: <AboutUs />,
-  },
-  {
-    path: '/ErrorPage',
-    element: <ErrorPage />
+    path: '/Home',
+    element: <HomePage />,
   }
 ])
 
 function App() {
   return (
     <div className="App">
-      <AboutUs />
+      <RouterProvider router={router} />
     </div>
   );
 }

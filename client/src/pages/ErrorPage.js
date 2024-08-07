@@ -5,7 +5,7 @@ function ErrorPage() {
   return (
     <div>
         404 NOT FOUND
-        <Link></Link>
+        <Link to='/'>Back</Link>
     </div>
   )
 }
