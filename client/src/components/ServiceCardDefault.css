@@ -1,0 +1,113 @@
+.request-icon {
+    width: 64px;
+    position: relative;
+    height: 64px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .icon,
+  .icon-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+  .icon {
+    width: 120px;
+    border-radius: var(--br-81xl);
+    background-color: var(--color-darksalmon);
+    height: 120px;
+    overflow: hidden;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-3xs);
+    box-sizing: border-box;
+  }
+  .icon-wrapper {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .apply-for-funding {
+    align-self: stretch;
+    position: relative;
+    font-weight: 500;
+  }
+  .apply-for-funding-wrapper {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .content7 {
+    width: 306px;
+    position: relative;
+    font-size: var(--text-md-semibold-size);
+    line-height: 18px;
+    display: none;
+  }
+  .frame-parent6 {
+    align-self: stretch;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gap-5xs);
+  }
+  .frame-parent5,
+  .frame-parent6,
+  .frame-wrapper8 {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .frame-wrapper8 {
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .frame-parent5 {
+    align-self: stretch;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--gap-5xl);
+  }
+  .frame-child {
+    align-self: stretch;
+    background-color: var(--gray-200);
+    height: 1px;
+  }
+  .button21,
+  .frame-child,
+  .frame-icon6 {
+    position: relative;
+  }
+  .frame-icon6 {
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .button20,
+  .service-carddefault {
+    border-radius: var(--br-15xl);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-5xs);
+    gap: var(--gap-3xs);
+    font-size: var(--text-sm-medium-size);
+    color: var(--tertiary);
+  }
+  .service-carddefault {
+    flex: 1;
+    box-shadow: var(--small);
+    border-radius: var(--br-9xs);
+    background-color: var(--white);
+    border: 1px solid var(--gray-200);
+    flex-direction: column;
+    padding: var(--padding-base);
+    gap: var(--gap-5xl);
+    text-align: left;
+    font-size: var(--text-xl-regular-size);
+    color: var(--text);
+    font-family: var(--text-md-semibold);
+  }
+  
