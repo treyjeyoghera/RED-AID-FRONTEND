@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import "./Home.css";
 import React from "react";
 import OurServices from "./OurServices";
+import Categories from "./Categories";
 
 const HeroSection = ({ className = "" }) => {
   return (
@@ -21,6 +22,7 @@ const HeroSection = ({ className = "" }) => {
         </div>
       </div>
       <OurServices />
+      <Categories />
     </div>
 
   );

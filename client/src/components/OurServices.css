@@ -1,40 +1,31 @@
-.service-carddefault-parent {
-    position: absolute;
-    top: 330px;
-    left: 250px;
-    width: 1228px;
+/* Container for the entire services section */
+.page-wrapper {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: var(--gap-5xl);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: var(--padding-xl);
+    margin-top: 50px;
   }
-  .our-services1 {
-    position: relative;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-  .our-services-wrapper {
-    border-radius: var(--br-9xs);
-    background-color: var(--color-yellowgreen-100);
+  
+  /* Container for the services content */
+  .our-services {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: var(--padding-xs);
-  }
-  .get-our-free {
-    position: relative;
-    font-size: var(--font-size-17xl);
-    letter-spacing: -0.02em;
-    font-weight: 600;
-    color: var(--text);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--white);
+    padding: 20px;
     text-align: center;
+    font-size: var(--text-xl-regular-size);
+    color: var(--text);
+    font-family: var(--text-md-semibold);
   }
+  
+  /* Title container */
   .frame-parent7 {
-    position: absolute;
-    top: 156px;
-    left: 676px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,21 +33,180 @@
     gap: var(--gap-2xs);
     font-size: var(--text-xs-semibold-size);
     color: var(--primary);
+    margin-bottom: var(--margin-lg);
   }
-  .our-services {
-    width: 1728px;
-    position: relative;
+  
+  /* Title styling */
+  .our-services-wrapper {
+    border-radius: var(--br-9xs);
+    background-color: var(--color-yellowgreen-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-xs);
+  }
+  
+  .our-services1 {
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  
+  /* Subtitle styling */
+  .get-our-free {
+    font-size: var(--font-size-17xl);
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  /* Container for service cards */
+  .service-carddefault-parent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--gap-5xl);
+    width: 100%;
+  }
+  
+  /* Individual service card */
+  .service-carddefault {
+    flex: 1;
+    min-width: 300px; /* Minimum width for flexibility */
+    max-width: 380px; /* Maximum width for better layout */
+    box-shadow: var(--small);
+    border-radius: var(--br-9xs);
     background-color: var(--white);
-    height: 800px;
-    overflow: hidden;
-    flex-shrink: 0;
+    border: 1px solid var(--gray-200);
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding-base);
+    gap: var(--gap-5xl);
     text-align: left;
     font-size: var(--text-xl-regular-size);
     color: var(--text);
     font-family: var(--text-md-semibold);
   }
-  /* Page Wrapper with Left Margin */
-
-  /* Updated button text to be flexible and match button size */
   
+  /* Icon styles */
+  .request-icon {
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  
+  .icon,
+  .icon-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .icon {
+    width: 120px;
+    height: 120px;
+    border-radius: var(--br-81xl);
+    background-color: var(--color-darksalmon);
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-3xs);
+    box-sizing: border-box;
+    flex-shrink: 0;
+  }
+  
+  .icon-wrapper {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  /* Text styles */
+  .apply-for-funding {
+    align-self: stretch;
+    position: relative;
+    font-weight: 500;
+  }
+  
+  .apply-for-funding-wrapper {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  .content7 {
+    width: 306px;
+    font-size: var(--text-md-semibold-size);
+    line-height: 18px;
+    display: none;
+  }
+  
+  .frame-parent6 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gap-5xs);
+  }
+  
+  .frame-parent5,
+  .frame-wrapper8 {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .frame-wrapper8 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .frame-parent5 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--gap-5xl);
+  }
+  
+  .frame-child {
+    align-self: stretch;
+    background-color: var(--gray-200);
+    height: 1px;
+  }
+  
+  .button21,
+  .frame-child,
+  .frame-icon6 {
+    position: relative;
+  }
+  
+  .frame-icon6 {
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  
+  .button20 {
+    border-radius: var(--br-15xl);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-5xs);
+    gap: var(--gap-3xs);
+    font-size: var(--text-sm-medium-size);
+    color: var(--tertiary);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .service-carddefault {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  }
   

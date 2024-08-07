@@ -6,6 +6,12 @@ import ServiceCardDefault from "./ServiceCardDefault";
 const OurServices = ({ className = "" }) => {
   return (
     <div className={`page-wrapper ${className}`}>
+      <div className="frame-parent7">
+        <div className="our-services-wrapper">
+          <div className="our-services1">Our Services</div>
+        </div>
+        <div className="get-our-free">Get our Free Services</div>
+      </div>
       <div className="our-services">
         <div className="service-carddefault-parent">
           <ServiceCardDefault
@@ -27,12 +33,6 @@ const OurServices = ({ className = "" }) => {
             button="Consult"
             propMinWidth="unset"
           />
-        </div>
-        <div className="frame-parent7">
-          <div className="our-services-wrapper">
-            <div className="our-services1">Our Services</div>
-          </div>
-          <div className="get-our-free">Get our Free Services</div>
         </div>
       </div>
     </div>
