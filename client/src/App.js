@@ -6,6 +6,9 @@ import Partners from './pages/Partners';
 import AboutUs from './AboutUs';
 import SignUp from './pages/SignUp';
 import ErrorPage from './pages/ErrorPage';
+import Opportunities from './pages/Opportunities';
+import Associations from './pages/Associations';
+import Funding from './pages/Funding';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +27,18 @@ const router = createBrowserRouter([
   {
     path: '/Home',
     element: <HomePage />,
+  },
+  {
+    path: '/Associations',
+    element: <Associations />,
+  },
+  {
+    path: '/Opportunities',
+    element: <Opportunities />,
+  },
+  {
+    path: '/Funding',
+    element: <Funding />,
   }
 ])
 
