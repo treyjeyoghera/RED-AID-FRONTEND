@@ -63,7 +63,8 @@ const Signup = () => {
 
                         <label htmlFor="username">Username</label>
                         <Field name="username" type="text" />
-                        <ErrorMessage name="username"  component="div" />
+                        <ErrorMessage name="username"  
+                        component="div" />
 
                         <label htmlFor="password">Password</label>
                         <Field name="password" type="password" />
