@@ -4,7 +4,10 @@ import NavBar from '../components/NavBar'
 
 const Funding = () => {
   return (
-    <div>Funding</div>
+    <div>
+        <NavBar />
+        Funding
+    </div>
   )
 }
 

@@ -4,7 +4,10 @@ import NavBar from '../components/NavBar'
 
 const Opportunities = () => {
   return (
-    <div>Opportunities</div>
+    <div>
+        <NavBar />
+        Opportunities
+    </div>
   )
 }
 
