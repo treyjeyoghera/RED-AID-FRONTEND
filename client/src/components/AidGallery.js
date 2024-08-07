@@ -2,11 +2,13 @@ import React from 'react'
 import '../App.css';
 
 const images = [
-    { src: ".../public/aid-images/mom-farmer.jpg", alt: "Mother farmer" },
-    { src: ".../public/aid-images/melon-girl.jpg", alt: "Girl with melons" },
-    { src: ".../public/aid-images/carver.jpg", alt: "Carver working" },
-    { src: ".../public/aid-images/aviation.jpg", alt: "Aviation lady" },
-    { src: ".../public/aid-images/desert.jpg", alt: "Desert worker" }
+    { src: "/aid-images/mom-farmer.jpg", alt: "Mother farmer" },
+    { src: "/aid-images/melon-girl.jpg", alt: "Girl with melons" },
+    { src: "/aid-images/carver.jpg", alt: "Carver working" },
+    { src: "/aid-images/aviation.jpg", alt: "Aviation lady" },
+    { src: "/aid-images/desert.jpg", alt: "Desert worker" },
+    { src: "/aid-images/unemployed.jpg", alt: "youths smiling" }
+
   ];
 
   const AidGallery = () => {
