@@ -1,4 +1,4 @@
-/* import React, { useState } from 'react';
+import React, { useState } from 'react';
 //import './ResponsiveCategories.css';
 
 const ResponsiveCategories = ({ categories }) => {
@@ -30,4 +30,3 @@ const ResponsiveCategories = ({ categories }) => {
 };
 
 export default ResponsiveCategories;
- */

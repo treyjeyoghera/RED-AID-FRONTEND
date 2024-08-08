@@ -1,14 +1,14 @@
-import React from 'react'
-import NavBar from './components/NavBar'
-import AidGallery from './components/AidGallery'
-import AboutArticle from './components/AboutArticle'
-//import axios from 'axios';
-//import ResponsiveCategories from './components/ResponsiveCategories';
-//import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import NavBar from './components/NavBar';
+import AidGallery from './components/AidGallery';
+import AboutArticle from './components/AboutArticle';
+import axios from 'axios';
+import ResponsiveCategories from './components/ResponsiveCategories';
 
 const AboutUs = () => {
-  
-/*   useEffect(() => {
+  const [categories, setCategories] = useState([]);  // Initialize categories state
+
+  useEffect(() => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get('http://127.0.0.1:5000/categories');
@@ -20,7 +20,6 @@ const AboutUs = () => {
 
     fetchCategories();
   }, []);
- */
 
   return (
     <div>
@@ -29,15 +28,15 @@ const AboutUs = () => {
       <AidGallery />
       <AboutArticle />
       <div>
-      <h1>About Us</h1>
-    {/*   {categories.length > 0 ? (
-        <ResponsiveCategories categories={categories} />
-      ) : (
-        <p>Loading categories...</p>
-      )} */}
+        <h1>About Us</h1>
+        {categories.length > 0 ? (
+          <ResponsiveCategories categories={categories} />
+        ) : (
+          <p>Loading categories...</p>
+        )}
+      </div>
     </div>
-    </div>
-  )
-}
+  );
+};
 
-export default AboutUs
+export default AboutUs;
