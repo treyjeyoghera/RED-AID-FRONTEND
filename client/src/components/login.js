@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from './AuthProvider';
+import './login.css';
 
 const Login = () => {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { login } = useAuth();
 
   const formik = useFormik({
     initialValues: {
@@ -18,8 +18,9 @@ const Login = () => {
       password: Yup.string().min(6, 'Must be at least 6 characters').required('Required'),
     }),
     onSubmit: async (values) => {
+      setLoading(true);
       try {
-        const response = await fetch('/login', {
+        const response = await fetch('/auth/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -28,13 +29,15 @@ const Login = () => {
         });
         const data = await response.json();
         if (response.ok) {
-          login(data.user); // Assuming your backend returns user info
-          navigate('/profile');
+          alert(data.message);
+          navigate('/dashboard'); // Redirect to the dashboard or homepage on success
         } else {
           alert(data.message);
         }
       } catch (error) {
         console.error('Login error:', error);
+      } finally {
+        setLoading(false);
       }
     },
   });
@@ -46,20 +49,24 @@ const Login = () => {
         <input
           type="email"
           name="email"
+          placeholder="Email"
           onChange={formik.handleChange}
           value={formik.values.email}
         />
         {formik.touched.email && formik.errors.email && <div>{formik.errors.email}</div>}
-        
+
         <input
           type="password"
           name="password"
+          placeholder="Password"
           onChange={formik.handleChange}
           value={formik.values.password}
         />
         {formik.touched.password && formik.errors.password && <div>{formik.errors.password}</div>}
-        
-        <button type="submit">Login</button>
+
+        <button type="submit" disabled={loading}>
+          {loading ? 'Logging in...' : 'Login'}
+        </button>
       </form>
     </div>
   );
