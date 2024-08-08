@@ -41,7 +41,7 @@
   .content7 {
     width: 306px;
     position: relative;
-    font-size: var(--text-md-semibold-size);
+    font-size: 1rem;
     line-height: 18px;
     display: none;
   }
@@ -93,7 +93,7 @@
     justify-content: center;
     padding: var(--padding-5xs);
     gap: var(--gap-3xs);
-    font-size: var(--text-sm-medium-size);
+    font-size: 1rem;
     color: var(--tertiary);
   }
   .service-carddefault {
@@ -106,7 +106,7 @@
     padding: var(--padding-base);
     gap: var(--gap-5xl);
     text-align: left;
-    font-size: var(--text-xl-regular-size);
+    font-size: 1rem;
     color: var(--text);
     font-family: var(--text-md-semibold);
   }
