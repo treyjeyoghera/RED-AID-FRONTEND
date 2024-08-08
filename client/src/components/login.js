@@ -30,7 +30,7 @@ const Login = () => {
         const data = await response.json();
         if (response.ok) {
           alert(data.message);
-          navigate('/dashboard'); // Redirect to the dashboard or homepage on success
+          navigate('/homepage'); // Redirect to the dashboard or homepage on success
         } else {
           alert(data.message);
         }

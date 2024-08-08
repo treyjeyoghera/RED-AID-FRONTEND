@@ -1,8 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuth } from './AuthProvider';
+import './profile.css';
 
 const Profile = () => {
   const { user, logout } = useAuth();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        // Simulate a user data fetch
+        // Replace this with actual data fetching logic if needed
+        setLoading(false);
+      } catch (error) {
+        setError('Failed to load user data.');
+        setLoading(false);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  if (loading) {
+    return <h2>Loading user profile...</h2>;
+  }
+
+  if (error) {
+    return <h2>{error}</h2>;
+  }
 
   if (!user) {
     return <h2>Please log in to view your profile.</h2>;

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/login';
 import Signup from './components/signup';
 import Profile from './components/Profile';
-import AuthProvider from './components/AuthProvider'; // Ensure this file exists
+import AuthProvider from './components/AuthProvider';
 
 const App = () => {
   return (
