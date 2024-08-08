@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-//import './ResponsiveCategories.css';
+import '../ResponsiveCategories.css';
 
 const ResponsiveCategories = ({ categories }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
