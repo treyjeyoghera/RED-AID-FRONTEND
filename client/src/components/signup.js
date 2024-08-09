@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-import './signup.css';
+
 
 const Signup = () => {
   const [loading, setLoading] = useState(false);
@@ -26,7 +26,7 @@ const Signup = () => {
     onSubmit: async (values) => {
       setLoading(true);
       try {
-        const response = await fetch('/auth/signup', {
+        const response = await fetch('http://127.0.0.1:5000/signup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ const Signup = () => {
         const data = await response.json();
         if (response.ok) {
           alert(data.message);
-          navigate('/login');
+          navigate('http://127.0.0.1:5000/login');
         } else {
           alert(data.message);
         }
