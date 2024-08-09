@@ -3,7 +3,6 @@ import "./Home.css";
 import React from "react";
 import OurServices from "./OurServices";
 import Categories from "./Categories";
-import EmploymentList from "./EmploymentList";
 
 const HeroSection = ({ className = "" }) => {
   return (
@@ -24,7 +23,6 @@ const HeroSection = ({ className = "" }) => {
       </div>
       <OurServices />
       <Categories />
-      <EmploymentList />
     </div>
 
   );

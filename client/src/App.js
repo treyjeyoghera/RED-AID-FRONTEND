@@ -8,8 +8,8 @@ import ErrorPage from './pages/ErrorPage';
 import Opportunities from './pages/Opportunities';
 import Associations from './pages/Associations';
 import Funding from './pages/Funding';
-import HeroSection from './components/Home';
-
+// import HeroSection from './components/Home';
+import EmploymentList from './components/EmploymentList';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/Opportunities',
-    element: <Opportunities />,
+    element: <EmploymentList />,
   },
   {
     path: '/Funding',
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className="App">
-      <HeroSection />
+      {/* <HeroSection /> */}
       <RouterProvider router={router} />
     </div>
   );
