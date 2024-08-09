@@ -3,6 +3,8 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import './login.css';
+import NavBar from '../components/NavBar';
+
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -44,6 +46,8 @@ const Login = () => {
 
   return (
     <div>
+        <NavBar />
+      <div className="login-container">  {/* Add styling for the login form */}  </div>
       <h1>Login</h1>
       <form onSubmit={formik.handleSubmit}>
         <input
