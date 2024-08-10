@@ -1,0 +1,89 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Intro Component Styles */
+  .intro-container {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f4f7fc;
+  }
+  
+  .intro-container h2 {
+    font-size: 28px;
+    color: #333;
+  }
+  
+  .intro-container p {
+    font-size: 18px;
+    color: #666;
+  }
+  
+  /* Companies Component Styles */
+  .companies-container {
+    padding: 50px 20px;
+    background-color: #ffffff;
+    text-align: center;
+  }
+  
+  .companies-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  .company-card {
+    background: #f4f7fc;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: background 0.3s;
+  }
+  
+  .company-card:hover {
+    background: #e0e7ef;
+  }
+  
+  /* UI/UX Booster Component Styles */
+  .uiux-container {
+    padding: 50px 20px;
+    background-color: #ffffff;
+    text-align: center;
+  }
+  
+  .uiux-container h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .uiux-container p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .booster-button {
+    background-color: #28a745;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .booster-button:hover {
+    background-color: #218838;
+  }
+  
