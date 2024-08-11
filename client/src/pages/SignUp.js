@@ -3,8 +3,8 @@ import NavBar from '../components/NavBar';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-import './signup.css'
-
+import './signup.css';
+import login from '../pages/login'
 const SignUp = () => {
   const navigate = useNavigate();
 
@@ -35,7 +35,7 @@ const SignUp = () => {
         const data = await response.json();
         if (response.ok) {
           alert(data.message);
-          navigate('http://127.0.0.1:5000/login');
+          navigate('/login');
         } else {
           alert(data.message);
         }
@@ -98,6 +98,9 @@ const SignUp = () => {
 
           <button type="submit">Sign Up</button>
         </form>
+        <div className="login-prompt">
+          <p>Already have an account? <span onClick={() => navigate('/login')} style={{ cursor: 'pointer', color: 'blue' }}>Login</span></p>
+        </div>
       </div>
     </div>
   );
