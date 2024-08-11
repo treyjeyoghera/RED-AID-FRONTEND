@@ -35,7 +35,7 @@ const SignUp = () => {
         const data = await response.json();
         if (response.ok) {
           alert(data.message);
-          navigate('http://127.0.0.1:5000/login');
+          navigate('/login');
         } else {
           alert(data.message);
         }
