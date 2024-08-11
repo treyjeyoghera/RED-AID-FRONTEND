@@ -2,8 +2,8 @@ import React from 'react';
 import NavBar from '../components/NavBar';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useNavigate } from 'react-router-dom';
-import './signup.css'
+import { useNavigate, Link } from 'react-router-dom'; // Import Link
+import './signup.css';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -98,6 +98,7 @@ const SignUp = () => {
 
           <button type="submit">Sign Up</button>
         </form>
+        <p>Already have an account? <Link to="/login">Login</Link></p> {/* Add this line */}
       </div>
     </div>
   );
