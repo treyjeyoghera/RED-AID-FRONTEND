@@ -105,9 +105,9 @@ const Funding = () => {
   return (
     <div>
       <NavBar />
-      <ProcessSteps />
-      <PopularCategory />
       <CallToAction />
+      <PopularCategory />
+      <ProcessSteps />
     </div>
   );
 };
