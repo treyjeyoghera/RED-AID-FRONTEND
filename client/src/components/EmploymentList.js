@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./EmploymentList.css";
+import NavBar from "./NavBar";
 
 const EmploymentList = () => {
   const [employments, setEmployments] = useState([]);
@@ -40,6 +41,8 @@ const EmploymentList = () => {
   );
 
   return (
+    <>
+    <NavBar />
     <div className="employment-list">
       <div className="filters">
         <input
@@ -76,6 +79,7 @@ const EmploymentList = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

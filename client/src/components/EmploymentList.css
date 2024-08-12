@@ -40,7 +40,7 @@
   
   .card button {
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #92CD00;
     color: white;
     border: none;
     border-radius: 5px;
@@ -48,7 +48,7 @@
   }
   
   .card button:hover {
-    background-color: #45a049;
+    background-color:#92CD00;
   }
   .show-more-container {
     text-align: center;
@@ -57,7 +57,7 @@
   
   .show-more-button {
     padding: 10px 20px;
-    background-color: #28a745;
+    background-color: #92CD00;
     color: #fff;
     border: none;
     border-radius: 5px;
