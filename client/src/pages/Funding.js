@@ -1,6 +1,7 @@
 import React from 'react'
 import './funding.css'; // Import the CSS file
 import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
 
 
 //const Funding = () => {
@@ -108,6 +109,7 @@ const Funding = () => {
       <CallToAction />
       <PopularCategory />
       <ProcessSteps />
+      <Footer/>
     </div>
   );
 };

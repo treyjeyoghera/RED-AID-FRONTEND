@@ -1,5 +1,6 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
 
 
 const Opportunities = () => {
@@ -7,6 +8,7 @@ const Opportunities = () => {
     <div>
         <NavBar />
         Opportunities
+        <Footer/>
     </div>
   )
 }

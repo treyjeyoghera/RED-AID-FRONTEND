@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import '../App.css';
 
+
 const NavBar = () => {
     const navigate = useNavigate();
 
@@ -12,7 +13,7 @@ const NavBar = () => {
   return (
     <header className='header'>
     <nav className='nav'>
-      <div className="logo">Sheclient.co</div>
+      <div className="logo">Nextwave</div>
       <ul className='nav-list'>
         <li className='nav-item'><Link to='/Home' className='nav-link'>Home</Link></li>
         <li className='nav-item'><Link to='/partners' className='nav-link'>Partners</Link></li>

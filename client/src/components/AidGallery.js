@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import '../App.css';
 
 const images = [
@@ -7,24 +7,28 @@ const images = [
     { src: "/aid-images/carver.jpg", alt: "Carver working" },
     { src: "/aid-images/aviation.jpg", alt: "Aviation lady" },
     { src: "/aid-images/desert.jpg", alt: "Desert worker" },
-    { src: "/aid-images/unemployed.jpg", alt: "youths smiling" }
+    { src: "/aid-images/chess.jpg", alt: "Youth playing chess" },
+    { src: "/aid-images/site.jpg", alt: "Youth at construction site" },
+    { src: "/aid-images/unemployed.jpg", alt: "Youth smiling" }
+];
 
-  ];
-
-  const AidGallery = () => {
-    return (
-      <div className="aid-gallery">
-        {images.map((image, index) => (
+const AidGallery = () => {
+  return (
+    <div className="aid-gallery">
+      {images.map((image, index) => (
+        <div key={index} className="gallery-image-container">
           <img 
-            key={index} 
             src={image.src} 
             alt={image.alt} 
             className="gallery-image"
           />
-        ))}
-      </div>
-    );
-  };
-  
+          <div className="caption-overlay">
+            {image.alt}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
 
-export default AidGallery
+export default AidGallery;
