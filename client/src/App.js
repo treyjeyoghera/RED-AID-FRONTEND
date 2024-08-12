@@ -5,11 +5,11 @@ import Partners from './pages/Partners';
 import AboutUs from './AboutUs';
 import SignUp from './pages/SignUp';
 import ErrorPage from './pages/ErrorPage';
-import Opportunities from './pages/Opportunities';
+import Opportunities from './components/EmploymentList';
 import Associations from './pages/Associations';
 import Funding from './pages/Funding';
-// import HeroSection from './components/Home';
-import EmploymentList from './components/EmploymentList';
+import ApplicationForm from './components/ApplicationForm'; // Import ApplicationForm
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -34,18 +34,21 @@ const router = createBrowserRouter([
   },
   {
     path: '/Opportunities',
-    element: <EmploymentList />,
+    element: <Opportunities />,
   },
   {
     path: '/Funding',
     element: <Funding />,
-  }
+  },
+  {
+    path: '/applications/:employmentId', // Add route for ApplicationForm
+    element: <ApplicationForm />,
+  },
 ]);
 
 function App() {
   return (
     <div className="App">
-      {/* <HeroSection /> */}
       <RouterProvider router={router} />
     </div>
   );
