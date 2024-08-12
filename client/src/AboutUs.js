@@ -4,6 +4,7 @@ import AidGallery from './components/AidGallery';
 import AboutArticle from './components/AboutArticle';
 import axios from 'axios';
 import ResponsiveCategories from './components/ResponsiveCategories';
+import Footer from './components/Footer';
 
 const AboutUs = () => {
   const [categories, setCategories] = useState([]);  // Initialize categories state
@@ -28,13 +29,14 @@ const AboutUs = () => {
       <AidGallery />
       <AboutArticle />
       <div>
-        <h1>About Us</h1>
+        
         {categories.length > 0 ? (
           <ResponsiveCategories categories={categories} />
         ) : (
           <p>Loading categories...</p>
         )}
       </div>
+      <Footer/>
     </div>
   );
 };
