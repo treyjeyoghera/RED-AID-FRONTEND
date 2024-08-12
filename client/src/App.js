@@ -1,14 +1,15 @@
 import React from 'react';
-import reactDom from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Partners from './pages/Partners';
 import AboutUs from './AboutUs';
 import SignUp from './pages/SignUp';
+import Login from './pages/login';
 import ErrorPage from './pages/ErrorPage';
-import Opportunities from './pages/Opportunities';
+import Opportunities from './components/EmploymentList';
 import Associations from './pages/Associations';
 import Funding from './pages/Funding';
+import ApplicationForm from './components/ApplicationForm'; // Import ApplicationForm
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: '/Signup',
     element: <SignUp />,
+  },
+  {
+    path: '/Login',
+    element: <Login />,
   },
   {
     path: '/Home',
@@ -43,8 +48,11 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <Opportunities />,
-  }
-])
+  },
+  {path: '/applications/:employmentId', // Add route for ApplicationForm
+    element: <ApplicationForm />,
+  },
+]);
 
 function App() {
   return (

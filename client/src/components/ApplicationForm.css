@@ -1,0 +1,76 @@
+.application-form {
+    background-color: #f9f9f9;
+    padding: 40px;
+    max-width: 600px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .application-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .application-form label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  .application-form input[type="text"],
+  .application-form input[type="email"],
+  .application-form input[type="url"],
+  .application-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+  }
+  
+  .application-form input[type="text"]:focus,
+  .application-form input[type="email"]:focus,
+  .application-form input[type="url"]:focus,
+  .application-form textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  }
+  
+  .application-form textarea {
+    resize: none;
+    height: 120px;
+  }
+  
+  .application-form button {
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .application-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 600px) {
+    .application-form {
+      padding: 20px;
+    }
+  
+    .application-form h2 {
+      font-size: 20px;
+    }
+  }
+  

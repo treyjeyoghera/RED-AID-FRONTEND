@@ -2,8 +2,11 @@ import React from 'react';
 import NavBar from '../components/NavBar';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useNavigate, Link } from 'react-router-dom'; // Import Link
+import { useNavigate } from 'react-router-dom';
 import './signup.css';
+import login from '../pages/login'
+import { Link } from "react-router-dom"
+
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -95,10 +98,14 @@ const SignUp = () => {
             placeholder="Last Name"
           />
           {formik.touched.last_name && formik.errors.last_name && <div>{formik.errors.last_name}</div>}
-
+          <Link to="/Login">
           <button type="submit">Sign Up</button>
+          </Link>
         </form>
-        <p>Already have an account? <Link to="/login">Login</Link></p> {/* Add this line */}
+        <div className="login-prompt">
+          <p>Already have an account? <span onClick={() => navigate('/login')} style={{ cursor: 'pointer', color: 'blue' }}>Login</span></p>
+        </div>
+
       </div>
     </div>
   );
