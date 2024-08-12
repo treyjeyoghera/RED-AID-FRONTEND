@@ -5,6 +5,7 @@ import AboutArticle from './components/AboutArticle';
 import axios from 'axios';
 import ResponsiveCategories from './components/ResponsiveCategories';
 import Footer from './components/Footer';
+import ContactDetails from './components/ContactDetails';
 
 const AboutUs = () => {
   const [categories, setCategories] = useState([]);  // Initialize categories state
@@ -25,18 +26,24 @@ const AboutUs = () => {
   return (
     <div>
       <NavBar />
-      <h2>Let's create decent work opportunities for all.</h2>
-      <AidGallery />
-      <AboutArticle />
-      <div>
-        
-        {categories.length > 0 ? (
-          <ResponsiveCategories categories={categories} />
-        ) : (
-          <p>Loading categories...</p>
-        )}
+      <div className="content-container">
+        <h2 className="centralized-heading">Let's create decent work opportunities for all.</h2>
+        <p className="intro-paragraph">
+          At NextWave, we are committed to transforming lives through sustainable job opportunities and community support.
+        </p>
+        <AidGallery />
+        <AboutArticle />
+        {/* Uncomment and adjust the code if you want to use ResponsiveCategories */}
+        {/* <div>
+          {categories.length > 0 ? (
+            <ResponsiveCategories categories={categories} />
+          ) : (
+            <p>Loading categories...</p>
+          )}
+        </div> */}
+        <ContactDetails />
+        <Footer />
       </div>
-      <Footer/>
     </div>
   );
 };

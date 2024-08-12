@@ -88,24 +88,59 @@
   display: block;
 }
 
+/* Aid Gallery Container */
 .aid-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 40px;
+  background-color: #f5f5f5;
   justify-items: center;
 }
 
-.gallery-image {
-  width: 100%;
-  max-width: 300px; /* Optional: limit the maximum width of each image */
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+/* Gallery Image Container */
+.gallery-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  height: 200px; /* Set a fixed height for all containers */
 }
 
-.gallery-image:hover {
+.gallery-image-container:hover {
   transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
+/* Ensure images cover the container area */
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the entire container */
+  border-radius: 12px;
+  transition: opacity 0.4s ease;
+}
+
+.gallery-image-container:hover .gallery-image {
+  opacity: 0.9;
+}
+
+/* Caption Overlay */
+.caption-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.gallery-image-container:hover .caption-overlay {
+  opacity: 1;
+}
+
