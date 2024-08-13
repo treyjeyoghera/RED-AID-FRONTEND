@@ -7,8 +7,8 @@ import NavBar from '../components/NavBar';
 const Intro = () => {
   return (
     <div className="intro-container">
-      <h2>Looking to join a global network of game-changers?</h2>
-      <p>Next Wave aims to create an international community that enables the building of secure, just, free, and harmonious societies.</p>
+      <h2>Looking To Join A Global Network Of Game-Changers?</h2>
+      <p>Next Wave aims to create an international community that enables the building of secure, just, free, and harmonious societies. Explore and join associations that match your interests.</p>
     </div>
   );
 };
@@ -124,7 +124,7 @@ const SocialIntegration = () => {
   return (
     <div className="social-integration-container">
       <h2>Join an Association</h2>
-      <p>Explore and join associations that match your interests.</p>
+      <p>Life is more FUN when you live in the moment. Join a network of future shapers today!</p>
 
       <div className="associations-list">
         {associations.slice(0, visibleAssociations).map(association => (
