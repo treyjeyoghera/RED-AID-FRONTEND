@@ -6,6 +6,7 @@ import axios from 'axios';
 import ResponsiveCategories from './components/ResponsiveCategories';
 import Footer from './components/Footer';
 import ContactDetails from './components/ContactDetails';
+import './App.css'
 
 const AboutUs = () => {
   const [categories, setCategories] = useState([]);  // Initialize categories state
@@ -42,6 +43,7 @@ const AboutUs = () => {
           )}
         </div> */}
         <ContactDetails />
+        
         <Footer />
       </div>
     </div>
