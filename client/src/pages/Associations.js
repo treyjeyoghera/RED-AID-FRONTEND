@@ -76,18 +76,49 @@ const SocialIntegration = () => {
   };
 
   const handleSave = async (id) => {
-    // Handle save logic here
-    console.log('Saved association with ID:', id);
+    try {
+      await fetch(`http://127.0.0.1:5000/save_association/${id}`, {
+        method: 'POST'
+      });
+      alert('Association saved!');
+    } catch (error) {
+      console.error('Error saving association:', error);
+    }
   };
 
-  const handleNotInterested = (id) => {
-    // Handle not interested logic here
-    console.log('Not interested in association with ID:', id);
+  const handleNotInterested = async (id) => {
+    try {
+      await fetch(`http://127.0.0.1:5000/not_interested/${id}`, {
+        method: 'POST'
+      });
+      alert('Marked as not interested.');
+    } catch (error) {
+      console.error('Error marking as not interested:', error);
+    }
   };
 
-  const handleJoinNow = (id) => {
-    // Handle join logic here
-    console.log('Joined association with ID:', id);
+  const handleJoinNow = async (id) => {
+    try {
+      if (joinedAssociations.has(id)) {
+        await fetch(`http://127.0.0.1:5000/leave_association/${id}`, {
+          method: 'POST'
+        });
+        setJoinedAssociations(prev => {
+          const newSet = new Set(prev);
+          newSet.delete(id);
+          return newSet;
+        });
+        alert('Left the association.');
+      } else {
+        await fetch(`http://127.0.0.1:5000/join_association/${id}`, {
+          method: 'POST'
+        });
+        setJoinedAssociations(prev => new Set(prev).add(id));
+        alert('Joined the association.');
+      }
+    } catch (error) {
+      console.error('Error joining/leaving association:', error);
+    }
   };
 
   return (
@@ -108,7 +139,9 @@ const SocialIntegration = () => {
               <div className="card-actions">
                 <button onClick={() => handleSave(association.id)}>Save</button>
                 <button onClick={() => handleNotInterested(association.id)}>Not Interested</button>
-                <button onClick={() => handleJoinNow(association.id)}>Join Now</button>
+                <button onClick={() => handleJoinNow(association.id)}>
+                  {joinedAssociations.has(association.id) ? 'Leave' : 'Join Now'}
+                </button>
               </div>
             </div>
           </div>
