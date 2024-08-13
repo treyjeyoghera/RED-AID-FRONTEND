@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import DonationForm from './DonationForm'; 
@@ -16,28 +17,31 @@ const NavBar = () => {
     };
 
     const handleDonationSubmit = async (donationData) => {
-      try {
-          const response = await fetch('/donations', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(donationData),
-          });
-  
-          if (response.ok) {
-              const result = await response.json();
-              console.log('Donation submitted successfully!', result);
-          } else {
-              console.error('Failed to submit donation');
-          }
-      } catch (error) {
-          console.error('An error occurred while submitting donation:', error);
-      }
-  
-      setShowDonationForm(false);
-  };
-  
+        try {
+            const response = await fetch('/donations', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(donationData),
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                console.log('Donation submitted successfully!', result);
+            } else {
+                console.error('Failed to submit donation');
+            }
+        } catch (error) {
+            console.error('An error occurred while submitting donation:', error);
+        }
+
+        setShowDonationForm(false);
+    };
+
+    const handleCloseDonationForm = () => {
+        setShowDonationForm(false);
+    };
 
     return (
         <header className='header'>
@@ -62,7 +66,7 @@ const NavBar = () => {
                     <button className="donate-btn" onClick={handleDonateClick}>Donate</button>
                 </div>
             </nav>
-            {showDonationForm && <DonationForm onSubmit={handleDonationSubmit} />}
+            {showDonationForm && <DonationForm onSubmit={handleDonationSubmit} onClose={handleCloseDonationForm} />}
         </header>
     );
 };
