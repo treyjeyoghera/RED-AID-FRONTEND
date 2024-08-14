@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './funding.css'; // Import the CSS file
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
@@ -96,7 +97,69 @@ const CallToAction = () => {
       <p>
         Apply now to kick-start your business and turn your dreams into reality.
       </p>
-      <button className="cta-button">Apply</button>
+    </div>
+  );
+};
+// Grants Component
+const FundingComponent = () => {
+  const [fundings, setFundings] = useState([]);
+  const [selectedFunding, setSelectedFunding] = useState(null);
+
+  useEffect(() => {
+    const fetchFundings = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:5000/fundings');
+        setFundings(response.data);
+      } catch (error) {
+        console.error('Error fetching fundings:', error);
+      }
+    };
+
+    fetchFundings();
+  }, []);
+
+  const handleFundingClick = (funding) => {
+    setSelectedFunding(funding);
+  };
+
+  const handleCloseDetails = () => {
+    setSelectedFunding(null);
+  };
+
+  return (
+    <div className="funding-container">
+      <div className="funding-list">
+        {fundings.map((funding) => (
+          <div
+            key={funding.id}
+            className="funding-card"
+            onClick={() => handleFundingClick(funding)}
+          >
+            <h3>{funding.grant_name}</h3>
+            <p><strong>Category ID:</strong> {funding.category_id}</p>
+            <p><strong>Amount:</strong> ${funding.amount}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="funding-details sticky-card">
+        {selectedFunding ? (
+          <div className="details-card">
+            <button className="close-button" onClick={handleCloseDetails}>×</button>
+            <h2>{selectedFunding.grant_name}</h2>
+            <p><strong>Category ID:</strong> {selectedFunding.category_id}</p>
+            <p><strong>Amount:</strong> ${selectedFunding.amount}</p>
+            <p><strong>Description:</strong> {selectedFunding.description}</p>
+            <p><strong>Eligibility Criteria:</strong> {selectedFunding.eligibility_criteria}</p>
+            <div style={{ marginTop: '20px' }}>
+              <button>Apply Now</button>
+              <button>Save for Later</button>
+            </div>
+          </div>
+        ) : (
+          <p>Please select a grant to see details.</p>
+        )}
+      </div>
     </div>
   );
 };
@@ -107,6 +170,7 @@ const Funding = () => {
     <div>
       <NavBar />
       <CallToAction />
+      <FundingComponent />
       <PopularCategory />
       <ProcessSteps />
       <Footer/>

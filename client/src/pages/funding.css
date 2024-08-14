@@ -5,7 +5,75 @@
     margin: 0;
     padding: 0;
   }*/
-  
+
+/* Container for the funding component */
+.funding-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* List of funding cards */
+.funding-list {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Individual funding card */
+.funding-card {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Selected funding details */
+.funding-details {
+  width: 35%; 
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+  position: sticky; /* Stick the card in view when scrolling */
+  top: 20px; /* Keep it at a fixed distance from the top */
+}
+
+/* Details card with information about the selected funding */
+.details-card {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Apply and Save buttons */
+.details-card button {
+  margin-right: 10px;
+}
+
+/* X button to close the details card */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Additional styles for the sticky card */
+.sticky-card {
+  position: sticky;
+  top: 20px;
+  align-self: flex-start;
+}
+
   /* ProcessSteps Styles */
   .process-container {
     text-align: center;
