@@ -3,7 +3,6 @@ import "./Home.css";
 import React from "react";
 import OurServices from "./OurServices";
 import Categories from "./Categories";
-import Article from "./Article"
 import { useNavigate } from "react-router-dom";  // Import useNavigate for navigation
 
 const HeroSection = ({ className = "" }) => {
@@ -31,7 +30,6 @@ const HeroSection = ({ className = "" }) => {
       </div>
       <OurServices />
       <Categories />
-      <Article/>
     </div>
   );
 };
