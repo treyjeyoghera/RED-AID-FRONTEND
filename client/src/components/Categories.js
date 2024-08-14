@@ -4,7 +4,7 @@ import './Categories.css';
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
-  const [showAll, setShowAll] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(5); // Set initial visible categories to 5
   const [newCategory, setNewCategory] = useState({ name: '', description: '' });
   const [editingCategory, setEditingCategory] = useState(null);
 
@@ -20,8 +20,6 @@ const Categories = () => {
 
     fetchCategories();
   }, []);
-
-  const displayedCategories = showAll ? categories : categories.slice(0, 6);
 
   const handleCreateCategory = async () => {
     try {
@@ -52,11 +50,15 @@ const Categories = () => {
     }
   };
 
+  const handleShowMore = () => {
+    setVisibleCount(visibleCount + 5); // Increase the visible count by 5 each time "Show More" is clicked
+  };
+
   return (
     <div className="categories-container">
       <h2>Categories</h2>
       <div className="categories-grid">
-        {displayedCategories.map((category) => (
+        {categories.slice(0, visibleCount).map((category) => (
           <div key={category.id} className="category-card">
             {editingCategory?.id === category.id ? (
               <>
@@ -69,42 +71,24 @@ const Categories = () => {
                   value={editingCategory.description}
                   onChange={(e) => setEditingCategory({ ...editingCategory, description: e.target.value })}
                 />
-                <button className="save-button" onClick={() => handleUpdateCategory(editingCategory)}>Save</button>
-                <button className="cancel-button" onClick={() => setEditingCategory(null)}>Cancel</button>
+                <button onClick={() => handleUpdateCategory(editingCategory)}>Save</button>
+                <button onClick={() => setEditingCategory(null)}>Cancel</button>
               </>
             ) : (
               <>
                 <h3>{category.name}</h3>
                 <p>{category.description}</p>
-                <div className="card-buttons">
-                  <button className="edit-button" onClick={() => setEditingCategory(category)}>Edit</button>
-                  <button className="delete-button" onClick={() => handleDeleteCategory(category.id)}>Delete</button>
-                </div>
+                <button  className='Not'  onClick={() => handleDeleteCategory(category.id)}>Not Interested</button>
               </>
             )}
           </div>
         ))}
       </div>
-      {categories.length > 6 && (
-        <button className="view-more-button" onClick={() => setShowAll(!showAll)}>
-          {showAll ? 'View Less' : 'View More Categories'}
+      {visibleCount < categories.length && (
+        <button className="view-more-button" onClick={handleShowMore}>
+          Show More Categories
         </button>
       )}
-      <div className="new-category-form">
-        <h3>Add New Category</h3>
-        <input
-          type="text"
-          placeholder="Name"
-          value={newCategory.name}
-          onChange={(e) => setNewCategory({ ...newCategory, name: e.target.value })}
-        />
-        <textarea
-          placeholder="Description"
-          value={newCategory.description}
-          onChange={(e) => setNewCategory({ ...newCategory, description: e.target.value })}
-        />
-        <button className="add-button" onClick={handleCreateCategory}>Add Category</button>
-      </div>
     </div>
   );
 };
