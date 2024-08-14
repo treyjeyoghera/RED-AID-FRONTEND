@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 //import './login.css';
 import NavBar from '../components/NavBar';
+import HomePage from './HomePage';
 
 
 const Login = () => {
@@ -32,7 +33,7 @@ const Login = () => {
         const data = await response.json();
         if (response.ok) {
           alert(data.message);
-          navigate('/homepage'); // Redirect to the dashboard or homepage on success
+          navigate('/Home'); // Redirect to the dashboard or homepage on success
         } else {
           alert(data.message);
         }
