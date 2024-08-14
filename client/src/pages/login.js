@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-//import './login.css';
+import './login.css';
 import NavBar from '../components/NavBar';
 import HomePage from './HomePage';
 
@@ -50,8 +50,8 @@ const Login = () => {
         <NavBar />
       <div className="login-container">  {/* Add styling for the login form */}  </div>
       <h1>Login</h1>
-      <form onSubmit={formik.handleSubmit}>
-        <input
+      <form className="box"onSubmit={formik.handleSubmit}>
+        <input 
           type="email"
           name="email"
           placeholder="Email"
@@ -69,7 +69,7 @@ const Login = () => {
         />
         {formik.touched.password && formik.errors.password && <div>{formik.errors.password}</div>}
 
-        <button type="submit" disabled={loading}>
+        <button className="button" type="submit" disabled={loading}>
           {loading ? 'Logging in...' : 'Login'}
         </button>
       </form>
