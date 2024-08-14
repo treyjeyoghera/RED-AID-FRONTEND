@@ -1,25 +1,50 @@
 import React, { useState } from 'react';
-import './DonationForm.css'; 
+import './DonationForm.css';
 
-const DonationForm = ({ onSubmit, onClose }) => {
-    const [donationType, setDonationType] = useState('INDIVIDUAL');
+const DonationForm = ({ onClose }) => {
+    const url = "http://127.0.0.1:5000";
+    const [donationType, setDonationType] = useState('Individual');
     const [name, setName] = useState('');
     const [organisationName, setOrganisationName] = useState('');
     const [amount, setAmount] = useState('');
-    const [paymentMethod, setPaymentMethod] = useState('CREDIT_CARD');
+    const [paymentMethod, setPaymentMethod] = useState('Credit Card');
+    const [successMessage, setSuccessMessage] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const donationData = {
             donation_type: donationType,
-            name,
-            organisation_name: organisationName,
+            name: donationType === 'Individual' ? name : '',
+            organisation_name: donationType === 'Organisation' ? organisationName : '',
             amount: parseFloat(amount),
             payment_method: paymentMethod,
         };
 
-        onSubmit(donationData);
+        try {
+            const response = await fetch(`${url}/donations`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(donationData),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Donation successful:', data);
+                setSuccessMessage('Thank you! Your donation was successful.');
+
+                setTimeout(() => {
+                    setSuccessMessage('');
+                    onClose();
+                }, 3000);
+            } else {
+                console.error('Error making donation:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error making donation:', error);
+        }
     };
 
     return (
@@ -27,16 +52,17 @@ const DonationForm = ({ onSubmit, onClose }) => {
             <div className="donation-form-container">
                 <button className="close-btn" onClick={onClose}>X</button>
                 <h2>Make a Donation</h2>
+                {successMessage && <p className="success-message">{successMessage}</p>}
                 <form onSubmit={handleSubmit} className="donation-form">
                     <div className="form-group">
                         <label>Donation Type:</label>
                         <select value={donationType} onChange={(e) => setDonationType(e.target.value)}>
-                            <option value="INDIVIDUAL">Individual</option>
-                            <option value="ORGANISATION">Organisation</option>
+                            <option value="Individual">Individual</option>
+                            <option value="Organisation">Organisation</option>
                         </select>
                     </div>
 
-                    {donationType === 'INDIVIDUAL' ? (
+                    {donationType === 'Individual' ? (
                         <div className="form-group">
                             <label>Name:</label>
                             <input
@@ -68,9 +94,9 @@ const DonationForm = ({ onSubmit, onClose }) => {
                     <div className="form-group">
                         <label>Payment Method:</label>
                         <select value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)}>
-                            <option value="CREDIT_CARD">Credit Card</option>
-                            <option value="BANK_TRANSFER">Bank Transfer</option>
-                            <option value="PAYPAL">PayPal</option>
+                            <option value="Credit Card">Credit Card</option>
+                            <option value="PayPal">PayPal</option>
+                            <option value="MPESA">MPESA</option>
                         </select>
                     </div>
 
