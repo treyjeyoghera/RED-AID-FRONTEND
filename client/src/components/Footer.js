@@ -1,12 +1,18 @@
 import React from 'react';
+import { FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa'; // Import social media icons
 
 const Footer = () => {
     return (
         <footer style={footerStyle}>
             <div style={containerStyle}>
                 <div style={sectionStyle}>
-                    <h4>Nexwave</h4>
-                    <p>.</p>
+                    <img src="/logo.png" alt="NextWave Logo" style={logoStyle} /> {/* Add Logo */}
+                    <h4>NextWave</h4>
+                    <div style={socialIconsStyle}>
+                        <a href="https://www.facebook.com/nextwave" style={iconLinkStyle}><FaFacebook /></a>
+                        <a href="https://www.linkedin.com/company/nextwave" style={iconLinkStyle}><FaLinkedin /></a>
+                        <a href="https://twitter.com/nextwave" style={iconLinkStyle}><FaTwitter /></a>
+                    </div>
                 </div>
                 <div style={sectionStyle}>
                     <h4>Quick Links</h4>
@@ -24,7 +30,7 @@ const Footer = () => {
                 </div>
             </div>
             <div style={copyRightStyle}>
-                <p>&copy; {new Date().getFullYear()} Nexwave. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} NextWave. All rights reserved.</p>
             </div>
         </footer>
     );
@@ -59,6 +65,23 @@ const listStyle = {
 const linkStyle = {
     color: '#ecf0f1',
     textDecoration: 'none',
+};
+
+const logoStyle = {
+    maxWidth: '100px',
+    marginBottom: '10px',
+};
+
+const socialIconsStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: '10px',
+};
+
+const iconLinkStyle = {
+    color: '#ecf0f1',
+    fontSize: '24px',
+    margin: '0 10px',
 };
 
 const copyRightStyle = {

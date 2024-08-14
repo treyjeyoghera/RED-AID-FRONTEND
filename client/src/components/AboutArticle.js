@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; 
 import './AboutArticle.css';
 
 const AboutArticle = () => {
@@ -10,19 +11,25 @@ const AboutArticle = () => {
                     <p>
                         NextWave is at the forefront of the fight against poverty, focusing on sustainable job employment and social integration. Our mission is to create opportunities that enable individuals to break free from the cycle of poverty and build a better future.
                     </p>
-                    <a href="#opportunities" className="about-link">Explore Opportunities</a>
+                    <Link to="/opportunities" className="about-link">
+                        <span className="arrow">→</span> Explore Opportunities
+                    </Link>
                 </div>
                 <div className="about-card">
                     <p>
                         We believe that employment is more than just a job; it's a pathway to dignity, stability, and growth. Through partnerships with local businesses and community organizations, NextWave provides tailored job placements that match the skills and aspirations of individuals with the needs of employers.
                     </p>
-                    <a href="#partnerships" className="about-link">Explore our Partnerships</a>
+                    <Link to="/partners" className="about-link">
+                        <span className="arrow">→</span> Explore our Partnerships
+                    </Link>
                 </div>
                 <div className="about-card">
                     <p>
                         But we don't stop there. Our holistic approach includes social support services that help individuals integrate fully into their communities, ensuring long-term success and well-being. We are committed to making a lasting impact and invite you to join us in transforming lives and communities.
                     </p>
-                    <a href="#funding" className="about-link">Learn about Funding</a>
+                    <Link to="/funding" className="about-link">
+                        <span className="arrow">→</span> Learn about Funding
+                    </Link>
                 </div>
             </section>
         </article>

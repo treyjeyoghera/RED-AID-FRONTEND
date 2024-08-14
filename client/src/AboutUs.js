@@ -6,10 +6,10 @@ import axios from 'axios';
 import ResponsiveCategories from './components/ResponsiveCategories';
 import Footer from './components/Footer';
 import ContactDetails from './components/ContactDetails';
-import './App.css'
+import './App.css'; // Custom styles for About Us page
 
 const AboutUs = () => {
-  const [categories, setCategories] = useState([]);  // Initialize categories state
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -28,22 +28,20 @@ const AboutUs = () => {
     <div>
       <NavBar />
       <div className="content-container">
-        <h2 className="centralized-heading">Let's create decent work opportunities for all.</h2>
-        <p className="intro-paragraph">
-          At NextWave, we are committed to transforming lives through sustainable job opportunities and community support.
-        </p>
+        <div className="intro-section">
+          <div className="intro-text">
+            <h2 className="centralized-heading">Let's create decent work opportunities for all.</h2>
+            <p className="typing-text">
+              At NextWave, we are committed to transforming lives through sustainable job opportunities and community support.
+            </p>
+          </div>
+          <div className="intro-image">
+            <img src="/aid-images/no-job.jpg" alt="NextWave Mission" />
+          </div>
+        </div>
         <AidGallery />
         <AboutArticle />
-        {/* Uncomment and adjust the code if you want to use ResponsiveCategories */}
-        {/* <div>
-          {categories.length > 0 ? (
-            <ResponsiveCategories categories={categories} />
-          ) : (
-            <p>Loading categories...</p>
-          )}
-        </div> */}
         <ContactDetails />
-        
         <Footer />
       </div>
     </div>
