@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";  // Import useNavigate for navigation
+import { useNavigate } from "react-router-dom";
 import "./EmploymentList.css";
 import NavBar from "./NavBar";
 
@@ -8,7 +8,7 @@ const EmploymentList = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [locationFilter, setLocationFilter] = useState("");
   const [visibleCount, setVisibleCount] = useState(10);
-  const navigate = useNavigate();  // Initialize useNavigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchEmployments();
@@ -37,9 +37,19 @@ const EmploymentList = () => {
   };
 
   const handleApply = (employmentId) => {
-    navigate(`/applications/${employmentId}`); // Navigate to the application form with the employmentId
+    navigate(`/applications/${employmentId}`);
   };
-  
+
+  const toggleDescription = (index) => {
+    setEmployments((prevEmployments) =>
+      prevEmployments.map((employment, i) =>
+        i === index
+          ? { ...employment, expanded: !employment.expanded }
+          : employment
+      )
+    );
+  };
+
   const filteredEmployments = employments.filter(
     (employment) =>
       employment.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
@@ -51,28 +61,36 @@ const EmploymentList = () => {
       <NavBar />
       <div className="employment-list">
         <div className="filters">
-          <input
-            type="text"
-            placeholder="Search by title..."
-            value={searchTerm}
-            onChange={handleSearch}
-          />
-          <input
-            type="text"
-            placeholder="Filter by location..."
-            value={locationFilter}
-            onChange={handleLocationFilter}
-          />
+            <input
+                type="text"
+                placeholder="Search by Job title, Position, Keyword..."
+                value={searchTerm}
+                onChange={handleSearch}
+            />
+            <input
+                type="text"
+                placeholder="City, state or zip code"
+                value={locationFilter}
+                onChange={handleLocationFilter}
+            />
+            
+            <button className="find-job-button">Find Job</button>
         </div>
+
         <div className="cards-container">
           {filteredEmployments.length > 0 ? (
-            filteredEmployments.slice(0, visibleCount).map((employment) => (
+            filteredEmployments.slice(0, visibleCount).map((employment, index) => (
               <div className="card" key={employment.id}>
                 <h3>{employment.title}</h3>
-                <p>{employment.description}</p>
                 <p><strong>Location:</strong> {employment.location}</p>
                 <p><strong>Salary Range:</strong> ${employment.salary_range}</p>
-                <button onClick={() => handleApply(employment.id)}>Apply Now</button>
+                <p className="description">
+                  {employment.expanded ? employment.description : `${employment.description.substring(0, 100)}...`}
+                  <button onClick={() => toggleDescription(index)} className="show">
+                    {employment.expanded ? "Show Less" : "Show More"}
+                  </button>
+                </p>
+                <button onClick={() => handleApply(employment.id)} className="apply-button">Apply Now</button>
               </div>
             ))
           ) : (
