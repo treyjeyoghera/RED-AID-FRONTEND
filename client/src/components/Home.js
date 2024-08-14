@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import "./Home.css";
 import React from "react";
+import SuccessStories from "./SuccessStories"
 import OurServices from "./OurServices";
 import Categories from "./Categories";
 import Article from "./Article"
@@ -29,6 +30,7 @@ const HeroSection = ({ className = "" }) => {
           </button>
         </div>
       </div>
+      <SuccessStories/>
       <OurServices />
       <Categories />
       <Article/>
