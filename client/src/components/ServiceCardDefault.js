@@ -28,7 +28,7 @@ const ServiceCardDefault = ({
       <div className="frame-parent5">
         <div className="icon-wrapper">
           <div className="icon" style={iconStyle}>
-            {/* <img className="request-icon" alt="" src={request} /> */}
+            <img className="request-icon" alt="" src= "/aid-images/Grants2 (1).png" />
           </div>
         </div>
         <div className="frame-wrapper8">
@@ -47,7 +47,7 @@ const ServiceCardDefault = ({
         <b className="button21" style={buttonStyle}>
           {button}
         </b>
-        {/* <img className="frame-icon6" alt="" src="/frame.svg" /> */}
+        {/* <img className="frame-icon6" alt="" src="" /> */}
       </div>
     </div>
   );
