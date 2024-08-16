@@ -12,6 +12,10 @@ const HeroSection = ({ className = "" }) => {
   const handleApplyForJobClick = () => {
     navigate("/Opportunities");  // Navigate to the EmploymentList page
   };
+  const handleApplyForFundingClick = () => {
+    navigate("/Funding");  // Navigate to the EmploymentList page
+  };
+  
 
   return (
     <div className="content-wrapper">
@@ -24,8 +28,8 @@ const HeroSection = ({ className = "" }) => {
             <b className="apply-for-a">APPLY FOR A JOB</b>
             {/* <img className="heart-icon" alt="Heart Icon" src="/heart.svg" /> */}
           </button>
-          <button className="button2">
-            <b className="request-for-funding">REQUEST FOR FUNDING</b>
+          <button className="button2" onClick={handleApplyForFundingClick} >
+            <b className="request-for-funding" >REQUEST FOR FUNDING</b>
           </button>
         </div>
       </div>
