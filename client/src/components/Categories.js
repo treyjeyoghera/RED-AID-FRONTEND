@@ -78,7 +78,7 @@ const Categories = () => {
               <>
                 <h3>{category.name}</h3>
                 <p>{category.description}</p>
-                <button  className='Not'  onClick={() => handleDeleteCategory(category.id)}>Not Interested</button>
+                {/* <button  className='Not'  onClick={() => handleDeleteCategory(category.id)}>Not Interested</button> */}
               </>
             )}
           </div>
