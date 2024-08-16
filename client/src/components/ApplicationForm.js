@@ -12,7 +12,7 @@ const ApplicationForm = () => {
         resume: '',
         linkedin: '',
         portfolio: '',
-        status: 'Pending',  // Default status
+        status: 'PENDING',  // Default status
     });
 
     const handleChange = (e) => {

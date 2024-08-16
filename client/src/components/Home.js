@@ -9,7 +9,7 @@ const HeroSection = ({ className = "" }) => {
   const navigate = useNavigate();  // Initialize useNavigate
 
   const handleApplyForJobClick = () => {
-    navigate("/Opportunities");  // Navigate to the EmploymentList page
+    navigate("/opportunities");  // Navigate to the EmploymentList page
   };
 
   return (

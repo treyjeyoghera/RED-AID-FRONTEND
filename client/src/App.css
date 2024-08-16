@@ -8,12 +8,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  max-width: 120px; /* Adjusted for better responsiveness */
+  height: auto;
 }
 
 .nav-list {
@@ -21,10 +26,11 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
+  flex: 1;
+  justify-content: center; /* Center the nav items */
 }
 
 .nav-item {
-  position: relative;
   margin: 0 1rem;
 }
 
@@ -33,6 +39,7 @@
   color: #333;
   font-size: 1rem;
   padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
 }
 
 .nav-link:hover {
@@ -41,14 +48,52 @@
 
 .button-group {
   display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+.user-profile-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: #e0e0e0; /* Light gray background */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.login-btn, .donate-btn {
+.user-profile-icon:hover {
+  background-color: #c0c0c0; /* Darker gray on hover */
+}
+
+/* Updated Logout Button */
+.logout-btn {
   padding: 0.5rem 1rem;
   margin-left: 1rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 0.9rem;
+  background-color: #ff4d4d; /* Red color for logout */
+  color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #e60000; /* Darker red on hover */
+  transform: scale(1.05);
+}
+
+
+.login-btn, .donate-btn, .logout-btn {
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .login-btn {
@@ -61,32 +106,90 @@
   color: white;
 }
 
+.logout-btn {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.donate-btn:hover, .login-btn:hover, .logout-btn:hover {
+  background-color: #7ab534;
+  transform: scale(1.05);
+}
+
+.login-btn:hover {
+  background-color: #333;
+  color: white;
+}
+
+.logout-btn:hover {
+  background-color: #e60000;
+}
+
+/* NavItem should be positioned relative to contain the dropdown */
+.nav-item {
+  position: relative;
+}
+
+/* Dropdown container should be absolutely positioned */
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 100%; 
+  top: 100%;
   left: 0;
-  background-color: #ffffff;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: #000200;
+  box-shadow: 0 8px 16px rgba(2, 37, 3, 0.1);
   z-index: 1;
   border-radius: 4px;
   overflow: hidden;
 }
 
+/* Display dropdown on hover */
+.nav-item:hover .dropdown-content {
+  display: block;
+}
+
+/* Dropdown items styling */
 .dropdown-item {
   padding: 0.5rem 1rem;
   text-decoration: none;
   display: block;
-  color: #333;
+  color: #ccc5c5;
+  transition: background-color 0.3s ease;
 }
 
 .dropdown-item:hover {
-  background-color: #f1f1f1;
+  background-color: #fdfbfb;
 }
 
-.nav-item:hover .dropdown-content {
-  display: block;
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo-img {
+    max-width: 100px; /* Adjusted for better responsiveness */
+  }
+
+  .nav-list {
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .nav-item {
+    margin: 0.5rem 0;
+  }
+
+  .button-group {
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: space-between;
+  }
 }
+
 
 
 
@@ -246,5 +349,36 @@
   .intro-image {
     max-width: 60%; 
     max-height: 600px;
+  }
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo-img {
+    max-width: 120px; /* Smaller logo on small screens */
+    max-height: 40px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .nav-item {
+    margin: 0.5rem 0;
+  }
+
+  .button-group {
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: space-between;
   }
 }
