@@ -42,13 +42,13 @@ const FundingForm = ({ onClose }) => {
     };
 
     return (
-        <div className="modal-overlay">
+        <form className="modal-overlay">
             <div className="modal-content">
                 <button className="close-button" onClick={onClose}>X</button>
                 <h2>Funding Application</h2>
                 <form onSubmit={handleSubmit}>
                     <label>
-                        ID NUMBER:
+                        ID Number:
                         <input
                             type="number"
                             name="user_id"
@@ -58,7 +58,7 @@ const FundingForm = ({ onClose }) => {
                         />
                     </label>
                     <label>
-                        AGE:
+                        Project Budget:
                         <input
                             type="number"
                             name="funding_id"
@@ -140,7 +140,7 @@ const FundingForm = ({ onClose }) => {
                     <button type="submit">Submit</button>
                 </form>
             </div>
-        </div>
+        </form>
     );
 };
 
