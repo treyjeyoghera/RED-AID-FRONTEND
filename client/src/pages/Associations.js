@@ -1,8 +1,11 @@
-import Footer from '../components/Footer'
-
 import React, { useState, useEffect } from 'react';
 import './associations.css'; // Import the CSS file
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
+
+// Import FontAwesome icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSave, faTimesCircle, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Intro = () => {
   return (
@@ -130,17 +133,22 @@ const SocialIntegration = () => {
         {associations.slice(0, visibleAssociations).map(association => (
           <div className="association-card" key={association.id}>
             <div className="card-image">
-            <img src="/partner-images/game changer..png" alt={association.association_name} />
+              <img src="/partner-images/game changer..png" alt={association.association_name} />
             </div>
             <div className="card-content">
               <h3>{association.association_name}</h3>
               <p>Category: {association.category_id}</p>
               <p>{association.description}</p>
               <div className="card-actions">
-                <button onClick={() => handleSave(association.id)}>Save</button>
-                <button onClick={() => handleNotInterested(association.id)}>Not Interested</button>
+                <button onClick={() => handleSave(association.id)}>
+                  <FontAwesomeIcon icon={faSave} /> Save
+                </button>
+                <button onClick={() => handleNotInterested(association.id)}>
+                  <FontAwesomeIcon icon={faTimesCircle} /> Not Interested
+                </button>
                 <button onClick={() => handleJoinNow(association.id)}>
-                  {joinedAssociations.has(association.id) ? 'Leave' : 'Join Now'}
+                  <FontAwesomeIcon icon={faCheckCircle} />
+                  {joinedAssociations.has(association.id) ? ' Leave' : ' Join Now'}
                 </button>
               </div>
             </div>
@@ -167,7 +175,7 @@ const Associations = () => {
       <Intro />
       <Companies />
       <SocialIntegration />
-        <Footer/>
+      <Footer />
     </div>
   );
 };
