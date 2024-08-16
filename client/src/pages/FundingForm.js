@@ -42,7 +42,7 @@ const FundingForm = ({ onClose }) => {
     };
 
     return (
-        <div className="modal-overlay">
+        <form className="modal-overlay">
             <div className="modal-content">
                 <button className="close-button" onClick={onClose}>X</button>
                 <h2>Funding Application</h2>
@@ -140,7 +140,7 @@ const FundingForm = ({ onClose }) => {
                     <button type="submit">Submit</button>
                 </form>
             </div>
-        </div>
+        </form>
     );
 };
 
