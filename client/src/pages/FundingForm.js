@@ -48,7 +48,7 @@ const FundingForm = ({ onClose }) => {
                 <h2>Funding Application</h2>
                 <form onSubmit={handleSubmit}>
                     <label>
-                        User ID:
+                        ID Number:
                         <input
                             type="number"
                             name="user_id"
@@ -58,7 +58,7 @@ const FundingForm = ({ onClose }) => {
                         />
                     </label>
                     <label>
-                        Funding ID:
+                        Project Budget:
                         <input
                             type="number"
                             name="funding_id"

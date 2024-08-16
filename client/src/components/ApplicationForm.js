@@ -64,6 +64,27 @@ const ApplicationForm = () => {
     return (
         <form className="application-form" onSubmit={handleSubmit}>
             <h2>Apply for Employment</h2>
+            <label>
+                ID Number:
+                <input
+                type="number"
+                name="user_id"
+                value={formData.user_id}
+                onChange={handleChange}
+                required
+                />
+            </label>
+            <label>
+                Work Experience:
+                <input
+                type="number"
+                name="employment_id"
+                value={formData.employment_id}
+                onChange={handleChange}
+                required
+                />
+            </label>
+
             <label htmlFor="name">Full Name</label>
             <input
                 type="text"
