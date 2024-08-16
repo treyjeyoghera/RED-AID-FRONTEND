@@ -3,7 +3,7 @@ import axios from 'axios';
 import './funding.css'; // Import the CSS file
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
-
+import FundingForm from './FundingForm';
 
 //const Funding = () => {
   //return (
@@ -18,7 +18,7 @@ import Footer from '../components/Footer'
 const ProcessSteps = () => {
   return (
     <div className="process-container">
-      <h2>Our Process</h2>
+      <h2>OUR PROCESS</h2>
       <div className="steps-wrapper">
         <div className="step">
           <div className="icon-wrapper">
@@ -51,59 +51,15 @@ const ProcessSteps = () => {
       </div>
     </div>
   );
-};
+}
 
-// PopularCategory Component
-const PopularCategory = () => {
-  return (
-    <div className="category-container">
-      <h2>Popular category</h2>
-      <a href="#" className="view-all">View All</a>
-      <div className="categories-wrapper">
-        <div className="category">
-          <h3>Graphic & Design</h3>
-        </div>
-        <div className="category">
-          <h3>Code & Programming</h3>
-        </div>
-        <div className="category">
-          <h3>Digital Marketing</h3>
-        </div>
-        <div className="category">
-          <h3>Video & Animation</h3>
-        </div>
-        <div className="category">
-          <h3>Music & Audio</h3>
-        </div>
-        <div className="category">
-          <h3>Account & Finance</h3>
-        </div>
-        <div className="category">
-          <h3>Health & Care</h3>
-        </div>
-        <div className="category">
-          <h3>Data & Science</h3>
-        </div>
-      </div>
-    </div>
-  );
-};
 
-// CallToAction Component
-const CallToAction = () => {
-  return (
-    <div className="cta-container">
-      <h2>Starting a new business and need to secure funding?</h2>
-      <p>
-        Apply now to kick-start your business and turn your dreams into reality.
-      </p>
-    </div>
-  );
-};
 // Grants Component
 const FundingComponent = () => {
   const [fundings, setFundings] = useState([]);
   const [selectedFunding, setSelectedFunding] = useState(null);
+  const [showForm, setShowForm] = useState(false);
+  const [savedFundings, setSavedFundings] = useState(new Set());
 
   useEffect(() => {
     const fetchFundings = async () => {
@@ -124,6 +80,26 @@ const FundingComponent = () => {
 
   const handleCloseDetails = () => {
     setSelectedFunding(null);
+  };
+
+  const handleOpenForm = () => {
+    setShowForm(true);
+  };
+
+  const handleCloseForm = () => {
+    setShowForm(false);
+  };
+
+  const handleSaveToggle = (fundingId) => {
+    setSavedFundings(prevSavedFundings => {
+      const updatedSavedFundings = new Set(prevSavedFundings);
+      if (updatedSavedFundings.has(fundingId)) {
+        updatedSavedFundings.delete(fundingId);
+      } else {
+        updatedSavedFundings.add(fundingId);
+      }
+      return updatedSavedFundings;
+    });
   };
 
   return (
@@ -152,8 +128,14 @@ const FundingComponent = () => {
             <p><strong>Description:</strong> {selectedFunding.description}</p>
             <p><strong>Eligibility Criteria:</strong> {selectedFunding.eligibility_criteria}</p>
             <div style={{ marginTop: '20px' }}>
-              <button>Apply Now</button>
-              <button>Save for Later</button>
+              <button onClick={handleOpenForm} className="apply-button">Apply for Funding</button>
+              {showForm && <FundingForm onClose={handleCloseForm} />}
+              <button
+                onClick={() => handleSaveToggle(selectedFunding.id)}
+                className={savedFundings.has(selectedFunding.id) ? 'saved' : 'save-for-later'}
+              >
+                {savedFundings.has(selectedFunding.id) ? 'Saved' : 'Save for Later'}
+              </button>
             </div>
           </div>
         ) : (
@@ -164,15 +146,46 @@ const FundingComponent = () => {
   );
 };
 
+// What We Offer component
+const WhatWeOffer = () => {
+  return (
+      <div className="what-we-offer-container">
+          <div className="video-container">
+              <video autoPlay loop muted className="offer-video">
+                  <source src="/partner-images/next wave video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+              </video>
+          </div>
+          <div className="content-container">
+              <h2>APPLY WITH NEXT WAVE</h2>
+              <h1>Access and apply for business or social aid grants with Next Wave</h1>
+              <div className="offer-options">
+                  <div className="offer-option">
+                      <h3>Starting a new business and need to secure funding?</h3>
+                      <p>Find grants and financial support easily with our app. We connect you to potential funders to help turn your vision into reality.</p>
+                  </div>
+                  <div className="offer-option">
+                      <h3>Discover life-changing support.</h3>
+                      <p>Facing challenges? Our app connects you to vital social aid funding. Find assistance for housing, healthcare, education, and more. Empower yourself with the support you deserve.</p>
+                  </div>
+              </div>
+              <button className="get-started-btn">Get Started</button>
+          </div>
+      </div>
+  );
+}
+
+// Search, Filter and Sort Component
+
+
 // Main Funding Component
 const Funding = () => {
   return (
-    <div>
+    <div className="funding-page">
       <NavBar />
-      <CallToAction />
-      <FundingComponent />
-      <PopularCategory />
+      <WhatWeOffer />
       <ProcessSteps />
+      <FundingComponent />
       <Footer/>
     </div>
   );

@@ -1,63 +1,100 @@
-/* General Styles */
-/*body {
-    font-family: Arial, sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
-  }*/
+/* General Styles for the funding page */
+.funding-page {
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
 
 /* Container for the funding component */
-.funding-container {
+.funding-page .funding-container {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  justify-content: center; /* Center the entire content horizontally */
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  background-color: #fff; /* White background */
+}
+
+/* Flex container for the list and details */
+.funding-page .funding-content {
+  display: flex;
+  gap: 20px; /* Spacing between the list and details */
 }
 
 /* List of funding cards */
-.funding-list {
-  flex: 1;
+.funding-page .funding-list {
+  flex: 2; /* Take more space */
   padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+  gap: 20px; /* Spacing between cards */
+
+  flex-direction: column;
+  align-items: center; /* Center cards horizontally */
+  gap: 20px; /* Spacing between cards */
+  overflow-y: auto; /* Allow scrolling if needed */
 }
 
 /* Individual funding card */
-.funding-card {
+.funding-page .funding-card {
   background-color: white;
   border: 1px solid #ccc;
   padding: 20px;
   margin-bottom: 20px;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 15px; /* Rounded edges */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  width: 250px; /* Ensure the card is square */
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space buttons and content */
+}
+
+/* Hover effect with bounce */
+.funding-page .funding-card:hover {
+  transform: translateY(-10px) scale(1.05); /* Slight bounce effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
 }
 
 /* Selected funding details */
-.funding-details {
-  width: 35%; 
+.funding-page .funding-details {
+  flex: 1; /* Take remaining space */
   padding: 20px;
   background-color: #ffffff;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
-  position: sticky; /* Stick the card in view when scrolling */
-  top: 20px; /* Keep it at a fixed distance from the top */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 15px; /* Rounded edges */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out content */
 }
 
 /* Details card with information about the selected funding */
-.details-card {
+.funding-page .details-card {
   background-color: white;
   border: 1px solid #ccc;
   padding: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: relative;
+  border-radius: 15px; /* Rounded edges */
 }
 
 /* Apply and Save buttons */
-.details-card button {
+.funding-page .details-card button {
   margin-right: 10px;
 }
 
+/* Center the details card with equal margin on both sides */
+.funding-page .funding-content {
+  justify-content: space-between; /* Space between list and details card */
+  max-width: 1200px; /* Same max-width as container */
+  margin: 0 auto; /* Center the content horizontally */
+}
+
 /* X button to close the details card */
-.close-button {
+.funding-page .close-button {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -68,107 +105,232 @@
 }
 
 /* Additional styles for the sticky card */
-.sticky-card {
+.funding-page .sticky-card {
   position: sticky;
   top: 20px;
   align-self: flex-start;
 }
 
-  /* ProcessSteps Styles */
-  .process-container {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: #f4f7fc;
-  }
-  
-  .steps-wrapper {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-  }
-  
-  .step {
-    background: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 20px;
-    max-width: 200px;
-    text-align: center;
-  }
-  
-  .icon-wrapper {
-    background-color: #dff0ff;
-    padding: 15px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-  }
-  
-  /* PopularCategory Styles */
-  .category-container {
-    padding: 50px 20px;
-    background-color: #ffffff;
-  }
-  
-  .category-container h2 {
-    font-size: 24px;
-    color: #333;
-  }
-  
-  .view-all {
-    color: #007bff;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .categories-wrapper {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-top: 20px;
-  }
-  
-  .category {
-    background: #f4f7fc;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    transition: background 0.3s;
-  }
-  
-  .category:hover {
-    background: #e0e7ef;
-  }
-  
-  /* CallToAction Styles */
-  .cta-container {
-    padding: 50px 20px;
-    background-color: #ffffff;
-    text-align: center;
-  }
-  
-  .cta-container h2 {
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .cta-container p {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 30px;
-  }
-  
-  .cta-button {
-    background-color: #28a745;
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-  }
-  
-  .cta-button:hover {
-    background-color: #218838;
-  }
-  
+/* ProcessSteps Styles */
+.funding-page .process-container {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f4f7fc;
+}
+
+.funding-page .steps-wrapper {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.funding-page .step {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 200px;
+  text-align: center;
+}
+
+.funding-page .icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.funding-page .icon-wrapper i {
+  font-size: 3rem; /* Increase the icon size */
+  color: #575252; /* Icon color */
+}
+
+/* CallToAction Styles */
+.funding-page .cta-container {
+  padding: 50px 20px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.funding-page .cta-container h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.funding-page .cta-container p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.funding-page .cta-button {
+  background-color: #28a745;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.funding-page .cta-button:hover {
+  background-color: #218838;
+}
+
+.funding-page .what-we-offer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.funding-page .video-container {
+  width: 50%;
+}
+
+.funding-page .offer-video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.funding-page .content-container {
+  width: 45%;
+  padding: 1rem;
+}
+
+.funding-page h1, 
+.funding-page h2 {
+  margin-left: 0;
+}
+
+.funding-page h2 {
+  color: #92cd00; /* Lime green */
+  font-weight: bold;
+}
+
+.funding-page h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.funding-page .offer-options {
+  margin-bottom: 2rem;
+}
+
+.funding-page .offer-option {
+  margin-bottom: 1rem;
+}
+
+.funding-page .get-started-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: #92cd00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.funding-page .get-started-btn:hover {
+  background-color: #b3f115;
+}
+
+/* Search and Filter Category */
+.funding-page .search-filter-container {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.funding-page .search-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.funding-page .search-bar input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.funding-page .search-bar button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.funding-page .search-bar button:hover {
+  background-color: #0056b3;
+}
+
+.funding-page .filter-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.funding-page .filter-buttons button {
+  flex: 1;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background-color: #e9ecef;
+  color: #495057;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 8px;
+  transition: background-color 0.3s;
+}
+
+.funding-page .filter-buttons button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.funding-page .filter-buttons button:last-child {
+  margin-right: 0;
+}
+
+.funding-page .sort-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.funding-page .sort-item {
+  display: flex;
+  align-items: center;
+  background-color: #e9ecef;
+  padding: 8px 16px;
+  margin: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.funding-page .sort-item span {
+  margin-right: 8px;
+}
+
+.funding-page .sort-item button {
+  background-color: transparent;
+  border: none;
+  color: #dc3545;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.funding-page .sort-item button:hover {
+  color: #b21f2d;
+}

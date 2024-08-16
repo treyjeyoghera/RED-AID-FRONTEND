@@ -38,7 +38,7 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust for smaller cards */
   gap: 20px;
 }
 
@@ -49,8 +49,8 @@ body {
 }
 
 .company-card img {
-  width: 120px; /* or a fixed width like 150px */
-  height: 120px; /* Adjust to your preferred height */
+  width: 80px; /* Smaller width for company images */
+  height: 80px; /* Smaller height for company images */
   object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio */
   display: block;
   margin: 0 auto;
@@ -83,7 +83,7 @@ body {
 /* Associations List Styles */
 .associations-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   margin-bottom: 30px;
 }
@@ -107,7 +107,7 @@ body {
 .card-image {
   position: relative;
   width: 100%;
-  height: 150px; /* Adjust height as needed */
+  height: 100px; /* Adjust height as needed */
   overflow: hidden;
 }
 
@@ -137,20 +137,35 @@ body {
 /* Card Actions Styles */
 .card-actions {
   display: flex;
-  justify-content: center;
-  gap: 15px;
+  flex-direction: column; /* Stack buttons vertically */
+  justify-content: flex-end; /* Align buttons at the bottom */
+  gap: 10px; /* Spacing between buttons */
+  height: 100%; /* Ensure buttons occupy the full height of the card */
 }
 
-.card-actions button,
-.card-actions img {
+.card-actions button {
   border: none;
-  background: none;
+  background-color: #f0f0f0; /* Light gray background */
+  color: #333; /* Dark text color */
   cursor: pointer;
+  font-size: 14px; /* Reduced font size */
+  padding: 8px 12px; /* Added padding for spacing */
+  border-radius: 4px; /* Rounded corners */
+  width: 100%; /* Full width of the card */
 }
 
-.card-actions img {
-  width: 24px; /* Icon size */
-  height: 24px;
+.card-actions button:hover {
+  background-color: #e0e0e0; /* Slightly darker gray on hover */
+}
+
+/* Ensure "Join Now" is below the other buttons */
+.card-actions .join-now {
+  margin-top: auto; /* Push it to the bottom of the stack */
+}
+
+.card-actions button svg {
+  width: 18px; /* Icon size */
+  height: 18px;
 }
 
 /* Load More Button Styles */
