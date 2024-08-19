@@ -1,52 +1,29 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 const UserProfile = () => {
+    const { user_id } = useParams();
     const [userProfile, setUserProfile] = useState(null);
-    const [userId, setUserId] = useState(null);
 
-    // Fetch a random user ID from the backend
     useEffect(() => {
-        const fetchRandomUserId = async () => {
+        const fetchUserProfile = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:5000/random-user-id', {
+                const response = await fetch(`http://127.0.0.1:5000/profile/${user_id}`, {
                     method: 'GET',
                 });
                 if (response.ok) {
                     const data = await response.json();
-                    setUserId(data.user_id);
+                    setUserProfile(data);
                 } else {
-                    console.error('Failed to fetch random user ID');
+                    console.error('Failed to fetch user profile');
                 }
             } catch (error) {
-                console.error('Error fetching random user ID:', error);
+                console.error('Error fetching user profile:', error);
             }
         };
 
-        fetchRandomUserId();
-    }, []);
-
-    // Fetch the user profile once the user ID is set
-    useEffect(() => {
-        if (userId) {
-            const fetchUserProfile = async () => {
-                try {
-                    const response = await fetch(`http://127.0.0.1:5000/profile/${userId}`, {
-                        method: 'GET',
-                    });
-                    if (response.ok) {
-                        const data = await response.json();
-                        setUserProfile(data);
-                    } else {
-                        console.error('Failed to fetch user profile');
-                    }
-                } catch (error) {
-                    console.error('Error fetching user profile:', error);
-                }
-            };
-
-            fetchUserProfile();
-        }
-    }, [userId]);
+        fetchUserProfile();
+    }, [user_id]);
 
     if (!userProfile) return <div>Loading...</div>;
 
@@ -81,6 +58,7 @@ const UserProfile = () => {
                         {userProfile.applications.map(app => (
                             <li key={app.id} style={styles.listItem}>
                                 <h3>Application for Employment ID: {app.employment_id}</h3>
+                                <p>Status: {app.status}</p>
                                 <p>Name: {app.name}</p>
                                 <p>Phone: {app.phone_number}</p>
                                 <p>Email: {app.email}</p>
@@ -95,13 +73,13 @@ const UserProfile = () => {
                     <p>No applications found</p>
                 )}
             </div>
+            {/* Add similar sections for social_integrations, funding_applications, and donations */}
         </div>
     );
 };
 
 const styles = {
     container: {
-        margin: '5px',
         padding: '20px',
         backgroundColor: '#ffffff',
         color: '#000000',

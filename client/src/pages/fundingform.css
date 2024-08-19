@@ -1,102 +1,98 @@
 /* src/components/FundingForm.css */
 
 .modal-overlay {
-  position: fixed;
-  top: 0; /* Align to the top of the viewport */
-  left: 0;
-  width: 100%;
-  height: 100%; /* Full height to cover the viewport */
-  background: #0000004d; /* Slightly less opaque */
-  display: flex;
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
-  z-index: 1000; /* Ensure it's on top of other content */
-  overflow: auto; /* Allow scrolling if content overflows */
-}
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 500px; /* Increased width */
-  max-width: 90%; /* Adjust max-width to fit various screen sizes */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
-  position: relative;
-  overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
-  max-height: 90vh; /* Limit height to 90% of viewport height */
-  display: flex;
-  flex-direction: column; /* Align children vertically */
-}
-
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 20px;
-  color: black; /* Black color for the close button */
-  cursor: pointer;
-  transition: color 0.3s ease; /* Smooth color transition */
-}
-
-.close-button:hover {
-  color: #333; /* Slightly lighter on hover */
-}
-
-h2 {
-  margin-top: 0;
-  font-size: 20px; /* Slightly larger heading */
-  font-weight: 600;
-}
-
-label {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 14px; /* Smaller label font size */
-}
-
-input, textarea, select {
-  width: 100%;
-  padding: 10px; /* Slightly larger padding */
-  margin-top: 4px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  font-size: 14px; /* Consistent font size */
-  transition: border-color 0.3s ease; /* Smooth border color transition */
-}
-
-input:focus, textarea:focus, select:focus {
-  border-color: #007bff; /* Change border color on focus */
-  outline: none; /* Remove default outline */
-}
-
-textarea {
-  resize: vertical; /* Allow vertical resize only */
-  min-height: 80px; /* Minimum height for text areas */
-}
-
-button {
-  padding: 10px 20px; /* Slightly larger padding */
-  border: none;
-  background: #000305;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px; /* Consistent font size */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth background and transform transitions */
-}
-
-button[type="submit"] {
-  margin-top: 10px;
-}
-
-button:hover {
-  background: #272a2c; /* Darker blue on hover */
-  transform: scale(1.05); /* Slight scale effect on hover */
-}
-
-button:focus {
-  outline: 2px solid #0056b3; /* Focus outline for accessibility */
-  outline-offset: 2px;
-}
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background: #0000004d; /* Slightly less opaque */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Ensure it's on top of other content */
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px; /* Increased width */
+    max-width: 70%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+    position: relative;
+    overflow: hidden; /* Prevents any overflow */
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: black; /* Black color for the close button */
+    cursor: pointer;
+    transition: color 0.3s ease; /* Smooth color transition */
+  }
+  
+  .close-button:hover {
+    color: #333; /* Slightly lighter on hover */
+  }
+  
+  h2 {
+    margin-top: 0;
+    font-size: 20px; /* Slightly larger heading */
+    font-weight: 600;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px; /* Smaller label font size */
+  }
+  
+  input, textarea, select {
+    width: 100%;
+    padding: 10px; /* Slightly larger padding */
+    margin-top: 4px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px; /* Consistent font size */
+    transition: border-color 0.3s ease; /* Smooth border color transition */
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+  }
+  
+  textarea {
+    resize: vertical; /* Allow vertical resize only */
+    min-height: 80px; /* Minimum height for text areas */
+  }
+  
+  button {
+    padding: 10px 20px; /* Slightly larger padding */
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px; /* Consistent font size */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth background and transform transitions */
+  }
+  
+  button[type="submit"] {
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight scale effect on hover */
+  }
+  
+  button:focus {
+    outline: 2px solid #0056b3; /* Focus outline for accessibility */
+    outline-offset: 2px;
+  }  

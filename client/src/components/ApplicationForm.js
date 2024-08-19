@@ -4,7 +4,6 @@ import './ApplicationForm.css';
 const ApplicationForm = () => {
     const [formData, setFormData] = useState({
         user_id: '',  // You'll need to get this from your authentication logic or context
-        status: 'PENDING',  // Default status
         employment_id: '',  // This might come from the job listing the user is applying to
         name: '',
         email: '',
@@ -13,6 +12,7 @@ const ApplicationForm = () => {
         resume: '',
         linkedin: '',
         portfolio: '',
+        status: 'PENDING',  // Default status
     });
 
     const handleChange = (e) => {
@@ -49,6 +49,7 @@ const ApplicationForm = () => {
                     resume: '',
                     linkedin: '',
                     portfolio: '',
+                    status: 'Pending',
                 });
             } else {
                 const error = await response.json();

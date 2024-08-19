@@ -21,7 +21,7 @@ const HeroSection = ({ className = "" }) => {
     <div className="content-wrapper">
       <div className="seeking-financial-aid-or-a-job-parent">
         <div className="seeking-financial-aid">
-          Seeking Financial Aid or a Job Opportunity to Improve your Living Standards?
+          Seeking Financial aid or a job opportunity to improve your living standards?
         </div>
         <div className="button-parent">
           <button className="button1" onClick={handleApplyForJobClick}>
