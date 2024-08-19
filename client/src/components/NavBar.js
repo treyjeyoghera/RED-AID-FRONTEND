@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import DonationForm from './DonationForm'; 
-import '../App.css';
+import './NavBar.css'; // Updated import
 import { AuthContext } from './AuthContext'; // Import AuthContext
 import Logout from '../pages/Logout';
 import { FaUserCircle } from 'react-icons/fa';
@@ -65,20 +65,18 @@ const NavBar = () => {
                     </li>
                 </ul>
                 <div className="button-group">
-                    {isLoggedIn ? (
-                        <>
-                            {userId && (
-                                <Link to={`/user-profile/${userId}`} className="user-profile-icon">
-                                    <FaUserCircle size={24} color="#333" />
-                                </Link>
-                            )}
-                            <Logout />
-                        </>
-                    ) : (
-                        <button className='login-btn' onClick={handleLoginClick}>Join Us</button>
-                    )}
-                    <button className="donate-btn" onClick={handleDonateClick}>Donate</button>
-                </div>
+                {isLoggedIn ? (
+                    <>
+                        {/* <Link to={`/profile/${userId}`} className="user-profile-icon">
+                            <FaUserCircle size={24} color="#333" />
+                        </Link> */}
+                        <Logout />
+                    </>
+                ) : (
+                    <button className='login-btn' onClick={handleLoginClick}>Join Us</button>
+                )}
+                <button className="donate-btn" onClick={handleDonateClick}>Donate</button>
+            </div>
             </nav>
             {showDonationForm && <DonationForm onClose={handleCloseDonationForm} />}
         </header>

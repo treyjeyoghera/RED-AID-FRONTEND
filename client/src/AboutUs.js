@@ -6,7 +6,7 @@ import axios from 'axios';
 import ResponsiveCategories from './components/ResponsiveCategories';
 import Footer from './components/Footer';
 import ContactDetails from './components/ContactDetails';
-import './App.css'; // Custom styles for About Us page
+import './AboutUs.css'; // Updated import
 
 const AboutUs = () => {
   const [categories, setCategories] = useState([]);

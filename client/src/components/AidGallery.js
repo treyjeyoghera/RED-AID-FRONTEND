@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import '../AboutUs.css';
 
 const images = [
     { src: "/aid-images/mom-farmer.jpg", alt: "Mother farmer" },
